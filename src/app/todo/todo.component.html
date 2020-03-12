@@ -1,0 +1,27 @@
+<H1>Todo</H1>
+
+<div class="container" >
+  <div class = "alert alert-warning" *ngif="todoform.dirty&&todoform.invalid">
+    sb you need to input something</div>
+    <div class = "alert alert-warning" *ngIf="todoform.dirty&&description.invalid">
+      sb you need to input something more than 5 words
+  </div>
+
+  <form (ngSubmit)="!todoform.invalid&&saveTodo()" #todoform=ngForm>
+  <fieldset class="form-group">
+    <label>Description</label>
+  <input type = "text"
+         #description = "ngModel"
+         [(ngModel)]="todo.description"  class="form-control"
+         name = "description" required="required" minlength="5">
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Target Date</label>
+  <input type="date" [ngModel]="todo.targetDate | date:'yyyy-MM-dd' "
+
+         (ngModelChange)="todo.targetDate = $event"   class="form-control" name = "targetDate" required = "required" >
+    <button type="submit" class = "btn btn-success" > Save</button>
+  </fieldset>
+  </form>
+</div>
+

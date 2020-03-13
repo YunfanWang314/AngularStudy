@@ -7,6 +7,9 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 })
 export class RouteGuardService implements CanActivate {
 
+
+
+
   constructor(
     private hardcodedAuthenticationService: HardcodedAuthenticationService,
     private router: Router) {
